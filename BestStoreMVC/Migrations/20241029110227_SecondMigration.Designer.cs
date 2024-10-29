@@ -4,6 +4,7 @@ using BestStoreMVC.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BestStoreMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241029110227_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,26 +174,6 @@ namespace BestStoreMVC.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "66c97fff-d113-4eeb-a79c-38cada1ed112",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        },
-                        new
-                        {
-                            Id = "aa0b49c2-abf4-42a9-b78d-28a55e1aef2d",
-                            Name = "client",
-                            NormalizedName = "client"
-                        },
-                        new
-                        {
-                            Id = "96c1168d-944e-489e-845d-29ef36959340",
-                            Name = "seller",
-                            NormalizedName = "seller"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
